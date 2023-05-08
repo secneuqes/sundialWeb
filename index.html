@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+
+    <meta name="view-transition" content="same-origin" />
+
+    <title>sundialWeb</title>
+</head>
+
+<body>
+    <main class="container">
+        <hgroup>
+            <h2>앙부일구</h2>
+            <h3>여러분의 위치에 맞는 앙부일구를 만들어보세요!</h3>
+        </hgroup>
+        <div class="grid">
+            <button class="contrast" data-target="modal-info"
+            onClick="toggleModal(event)">설명</button>
+            <a href="/location.html"><button>앙부일구 제작</button></a>
+        </div>
+
+        <dialog id="modal-info" open="false">
+            <article>
+              <header>
+                <a href="#close" aria-label="Close" class="close" data-target="modal-info" onClick="toggleModal(event)"></a>
+                앙부일구
+              </header>
+              <p>
+                앙부일구 설명
+              </p>
+            </article>
+          </dialog>
+    </main>
+
+    <script src="./modal.js"></script>
+
+</body>
+
+</html>
