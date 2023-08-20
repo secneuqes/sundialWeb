@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sun's Daily Movement</title>
+    <style>
+        #sun {
+            width: 50px;
+            height: 50px;
+            background-color: yellow;
+            border-radius: 50%;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div id="sun"></div>
+
+    <script>
+        // Function to calculate the Sun's position based on time
+        function calculateSunPosition(hour) {
+            const angle = ((hour - 6) / 12) * Math.PI; // Calculate angle based on the hour (assuming 6 AM as sunrise)
+            const radius = 200; // Radius of the circular path (sun's orbit)
+            const centerX = 250; // X coordinate of the center of the path
+            const centerY = 250; // Y coordinate of the center of the path
+
+            // Calculate the position of the Sun on the circular path
+            const x = centerX + Math.cos(angle) * radius;
+            const y = centerY + Math.sin(angle) * radius;
+
+            return { x, y };
+        }
+
+        // Function to update the position of the Sun on the page
+        function updateSunPosition(hour) {
+            const sun = document.getElementById('sun');
+            const position = calculateSunPosition(hour);
+            sun.style.left = position.x + 'px';
+            sun.style.top = position.y + 'px';
+        }
+
+        // Function to update the Sun's position every second
+        function animateSun() {
+            const now = new Date();
+            const hour = now.getHours();
+            updateSunPosition(hour);
+
+            // Recursive call to update the Sun's position every second
+            setTimeout(animateSun, 1000);
+        }
+
+        // Start the animation when the page loads
+        window.onload = animateSun;
+    </script>
+</body>
+</html>

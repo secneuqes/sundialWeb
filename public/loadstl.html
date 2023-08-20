@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"
+        integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+
+    <meta name="view-transition" content="same-origin" />
+
+    <link rel="stylesheet" type="text/css" href="./css/slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="./css/slick/slick-theme.css" />
+
+    <title>sundialWeb</title>
+</head>
+
+<body>
+    <main class="container" align="center">
+        <hgroup>
+            <h2 data-langnum="0">STL 파일 로드</h2>
+            <h3 data-langnum="1">3D 모델을 생성합니다!</h3>
+        </hgroup>
+        <article id="articleBox">
+            </div>
+            <header style="color: black; font-weight: bold;" data-langnum="2">기다리는 동안 앙부일구 부품의 원리에 대하여 탐구해보세요!</header>
+            <model-viewer id="model-viewer" bounds="tight" enable-pan src="prebuilt/prebuilt.glb" camera-controls ar
+                ar-modes="webxr scene-viewer quick-look" shadow-softness="0.5" exposure="1" environment-image="neutral"
+                poster="poster.webp" shadow-intensity="1" orientation="0deg -90deg  0deg" scale="0.7 0.7 0.7"
+                camera-orbit="0deg 51.2deg auto" field-of-view="10deg" auto-rotate interaction-prompt="none"
+                style="margin: 0 auto; width: 80%; height: 700px;">
+                <button class="Hotspot custom-btn btn-5" slot="hotspot-1"
+                    data-position="0.5489075925940483m -3.8879302263084847m 5.873247939139932m"
+                    data-normal="0.7391046702523159m 0.5914118377103575m 0.32242258703024074m"
+                    data-orbit="215.6deg 56.65deg 59.43m" data-fov="18.2deg" data-visibility-attribute="visible"
+                    data-target="modal-info" onclick="toggleModal(event); changeIMG($(this).text());">
+                    <div class="HotspotAnnotation" onclick="annotationClicked(this);" data-langnum="3">영침</div>
+                </button>
+                <button class="Hotspot custom-btn btn-5" slot="hotspot-2"
+                    data-position="14.180332234053557m 0.6999999999999986m 5.768110115993044m"
+                    data-normal="0m 1m 2.220446049250313e-16m" data-orbit="789.5deg 60.35deg 66.02m" data-fov="21.5deg"
+                    data-visibility-attribute="visible" data-target="modal-info"
+                    onclick="toggleModal(event); changeIMG($(this).text());">
+                    <div class="HotspotAnnotation" onclick="annotationClicked(this);" data-langnum="4">지평환</div>
+                </button>
+                <button class="Hotspot custom-btn btn-5" slot="hotspot-3"
+                    data-position="-6.880656152181743m -9.049734396421753m -6.701629814549515m"
+                    data-normal="0.5536203497931853m 0.6670988030487871m 0.4984813890866407m"
+                    data-orbit="30.1deg 52.02deg 113.2m" data-fov="10deg" data-visibility-attribute="visible"
+                    data-target="modal-info" onclick="toggleModal(event); changeIMG($(this).text());">
+                    <div class="HotspotAnnotation" onclick="annotationClicked(this);" data-langnum="5">시반 & 선</div>
+                </button>
+            </model-viewer>
+            <p data-langnum="6">태양의 운동이 궁금한가요?</p>
+            <button onclick="toggleModal(event);sunMoveJava();" role="button"
+                style="width: 270px; font-size: 70%; margin: 10px; margin-top: 50px;" data-target="modal-info" data-langnum="7">태양의 일주운동
+                시뮬레이션</button>
+            <button onclick="sunMoveText();toggleModal(event);" role="button"
+                style="width: 270px; font-size: 70%; margin: 10px;" data-target="modal-info" data-langnum="8">태양의 일주운동 학습하기</button>
+            <h3 style="margin-top: 40px;" data-langnum="9">파일을 제작하는데 평균 4~5분의 시간이 소요됩니다.</h3>
+            <progress id="progress-bar"></progress>
+            <div id="progress-bar-perc" style="margin: 0 auto;">0%</div>
+            <a href="/download" role="button" class="contrast" style="margin-top: 20px;" id="ok_btn" disabled data-langnum="10">잠시만
+                기다려주세요...</a>
+        </article>
+
+        <dialog id="modal-info" open="false">
+            <article style="width: 70vw !important; height: 90vh !important;">
+                <header class="modaltitle" data-langnum="11">
+                    <a href="#close" aria-label="Close" class="close" data-target="modal-info"
+                        onClick="toggleModal(event)"></a>
+                    앙부일구의 구성
+                </header>
+                <p class="modalcontent">
+                    <img class="infoimg" src="./">
+                </p>
+            </article>
+        </dialog>
+
+    </main>
+
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.1.1/model-viewer.min.js"></script>
+    <script src="./js/cameraControlsModel.js"></script>
+    <script src="./js/modal.js"></script>
+    <script src="./js/loadstl.js"></script>
+
+    <script type="text/javascript" src="./css/slick/slick.js"></script>
+</body>
+
+</html>

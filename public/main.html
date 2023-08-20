@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"
+    integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="./css/style.css">
+
+  <link rel="stylesheet" type="text/css" href="./css/slick/slick.css" />
+  <link rel="stylesheet" type="text/css" href="./css/slick/slick-theme.css" />
+
+  <title>sundialWeb</title>
+</head>
+
+<body>
+  <div id="background">
+    <div id="transblack"></div>
+    <model-viewer id="bg-model-viewer" bounds="tight" src="prebuilt/prebuilt.glb" camera-controls shadow-softness="0.5"
+      exposure="1" environment-image="neutral" poster="poster.webp" shadow-intensity="1" orientation="0deg -90deg  0deg"
+      scale="0.7 0.7 0.7" camera-orbit="0deg 51.2deg auto" field-of-view="10deg" auto-rotate interaction-prompt="none">
+    </model-viewer>
+  </div>
+  <main class="container">
+    <details role="list">
+      <summary aria-haspopup="listbox" data-langnum="8">언어</summary>
+      <ul role="listbox">
+        <li><a class="langbtn" data-lang="ko">한국어</a></li>
+        <li><a class="langbtn" data-lang="en">English</a></li>
+      </ul>
+    </details>
+    <hgroup>
+      <h2 data-langnum="0">앙부일구</h2>
+      <h3 style="color: black;" data-langnum="1">여러분의 위치에 맞는 앙부일구를 만들어보세요!</h3>
+    </hgroup>
+    <div class="grid">
+      <button class="contrast" data-target="modal-info" onClick="toggleModal(event)" data-langnum="2">설명</button>
+      <details role="list">
+        <summary aria-haspopup="listbox" role="button" data-langnum="3">학습 파일 다운로드</summary>
+        <ul role="listbox">
+          <li><a href="./download/student" data-langnum="4">학생용</a></li>
+          <li><a href="./download/teacher" data-langnum="5">교사용</a></li>
+        </ul>
+      </details>
+      <a href="./location"><button data-langnum="6">앙부일구 제작</button></a>
+    </div>
+    <dialog id="modal-info" open="false">
+      <article>
+        <header data-langnum="7">
+          <a href="#close" aria-label="Close" class="close" data-target="modal-info" onClick="toggleModal(event)"></a>
+          앙부일구에 대해 알아보자!
+        </header>
+        <p>
+        <div class="img-slider">
+          <div><img src="./img/1.png" alt="이미지1" id="infoimg"></div>
+          <div><img src="./img/2.png" alt="이미지2" id="infoimg"></div>
+          <div><img src="./img/3.png" alt="이미지3" id="infoimg"></div>
+          <div><img src="./img/4.png" alt="이미지4" id="infoimg"></div>
+          <div><img src="./img/5.png" alt="이미지5" id="infoimg"></div>
+        </div>
+        </p>
+      </article>
+    </dialog>
+  </main>
+
+  <script src="./js/modal.js"></script>
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.1.1/model-viewer.min.js"></script>
+
+  <script type="text/javascript" src="./css/slick/slick.js"></script>
+
+  <script src="./js/main.js"></script>
+
+</body>
+
+</html>

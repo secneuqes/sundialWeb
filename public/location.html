@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"
+        integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+
+
+    <meta name="view-transition" content="same-origin" />
+
+    <link rel="stylesheet" href="/css/style.css" type="text/css" />
+
+    <title>sundialWeb</title>
+</head>
+
+<body>
+    <main class="container" align="center">
+        <hgroup>
+            <h2 data-langnum="0">위치 입력</h2>
+            <h3 data-langnum="1">현재 위치를 확인해주세요!</h3>
+        </hgroup>
+        <article id="articleBox">
+            <h4 id="latitude">위도: </h4>
+            <h4 id="longitude">경도: </h4>
+            <h4 id="mag_declination">편각: </h4>
+            <a id="refresh_decl" href="javascript:void(0);" onclick="refresh_declination()" role="button"
+                class="secondary" style="display: hide; font-size: 10px; margin-bottom: 20px;">편각 다시
+                가져오기</a>
+            <h6 id="pos_accuracy" style="color: grey;">위치 정확도: </h6>
+            <div id="map" style="margin: 0 auto;"></div>
+            <a href="javascript:void(0);" onclick="laturl()" role="button" class="contrast" style="margin-top: 20px;"
+                id="ok_btn" disabled data-langnum="2">확인</a>
+        </article>
+
+    </main>
+
+    <script src="/js/modal.js"></script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcfSrOC4KTgo5EQxMjhqF9GYM-a6F-l5o&callback=initMap">
+        </script>
+
+    <script src="/js/location.js"></script>
+
+</body>
+
+</html>
